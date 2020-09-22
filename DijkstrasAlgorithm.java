@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
 
-class Dijkstra{  
+class DijkstrasAlgorithm{  
     static class DijkstraGraph{ 
         int numVertices;
         ArrayList<ArrayList<Edge>> list;
