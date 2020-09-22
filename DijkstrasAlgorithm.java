@@ -1,8 +1,3 @@
-// Cooper Urich
-// COP 3503C
-// Matthew Gerber
-// Submitted July 13, 2020
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -172,10 +167,19 @@ class DijkstrasAlgorithm{
         int numVertices, sourceVertex, numEdges;
         int a, b, weight;
         String buffer;
-        File text = new File("cop3503-asn2-input.txt");
-        Scanner scnr = new Scanner(text);
+        String filename;
+        File text;
+        Scanner s = new Scanner(System.in);
+        Scanner scnr;
         DijkstraGraph graph;
+        BellmanFord graph1;
         PrintWriter pw;
+
+        System.out.println("Enter file name\n");
+        filename = s.nextLine();
+
+        text = new File(filename);
+        scnr = new Scanner(text);
 
         // Scan in the number of edges, source Vertex, and Number of edges
         numVertices = scnr.nextInt();
@@ -203,21 +207,7 @@ class DijkstrasAlgorithm{
         // Call Dijkstra's Algorithm        
         graph.dijkstrasAlgorithm(sourceVertex);
 
-        try{
-            File asn = new File("cop3503-asn2-out-urich-cooper.txt");
-            pw = new PrintWriter(asn);
 
-            // Printing results to the file
-            pw.printf("%d\n", numVertices);
-            for (int i = 1; i < graph.visited.length; i++){
-                pw.printf("%d %d %d\n", i , graph.distance[i], graph.parent[i]);
-            }
-            pw.close();
-
-        } catch (Exception e){
-            e.printStackTrace();
-            return;
-        }
     }
     public static void println(String s){
         System.out.println(s);
